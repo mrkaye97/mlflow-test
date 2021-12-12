@@ -18,4 +18,8 @@ conda env list && \
 pip freeze list  && \
 which mlflow
 
-CMD mlflow ui --host 0.0.0.0 --port $PORT --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./artifacts
+CMD mlflow ui \
+  --host 0.0.0.0 \
+  --port $PORT
+  --backend-store-uri $DB_URL
+  --default-artifact-root s3://cv-data-science/mlflow-test
