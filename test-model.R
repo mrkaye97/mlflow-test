@@ -2,9 +2,10 @@ library(mlflow)
 library(tidymodels)
 library(tidyverse)
 library(carrier)
+library(glmnet)
 
 EXPERIMENT_NAME <- "Iris Elasticnet"
-mlflow_set_tracking_uri("http://0.0.0.0:3141")
+mlflow_set_tracking_uri("https://mk-mlflow-test.herokuapp.com/")
 
 if (!EXPERIMENT_NAME %in% mlflow_list_experiments()$name) {
   experiment_id <- mlflow_create_experiment(
