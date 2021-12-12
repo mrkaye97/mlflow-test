@@ -18,5 +18,5 @@ RUN conda install -c anaconda pip && \
 CMD mlflow ui \
   --host 0.0.0.0 \
   --port $PORT \
-  --backend-store-uri $DATABASE_URL \
+  --backend-store-uri $DB_URL \
   --default-artifact-root s3://cv-data-science/mlflow-test
