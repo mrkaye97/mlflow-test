@@ -21,5 +21,5 @@ which mlflow
 CMD mlflow ui \
   --host 0.0.0.0 \
   --port $PORT \
-  --backend-store-uri $DB_URL \
+  --backend-store-uri $DATABASE_URL \
   --default-artifact-root s3://cv-data-science/mlflow-test
