@@ -6,6 +6,10 @@ ENV HOME /
 WORKDIR $HOME
 COPY . $HOME
 
+RUN apt-get -y update && \
+  apt-get -y upgrade && \
+  apt-get install -y postgresql
+
 RUN conda install -c anaconda pip && \
   pip install --upgrade pip && \
   pip install -r requirements.txt && \
