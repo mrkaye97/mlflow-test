@@ -1,7 +1,5 @@
 FROM continuumio/miniconda3
 
-LABEL maintainer "yennj12"
-
 ENV HOME /
 WORKDIR $HOME
 COPY . $HOME
