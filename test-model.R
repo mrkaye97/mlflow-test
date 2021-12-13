@@ -82,19 +82,14 @@ with(mlflow_start_run(experiment_id = experiment_id), {
     ) %>%
     fit(d)
 
-  ## TODO: Figure out how to save models + artifacts to S3
-  # mlflow_log_artifact()
-
-  ## This will save the prediction function, but not the raw model afaict
-  mlflow_log_model(
-    model = crate(
-      function(x) predict(model, x)
-    ),
-    "model"
+  tmp <- tempfile(
+    pattern = "model",
+    fileext = ".rds"
   )
 
-  mlflow_create_registered_model(
-    EXPERIMENT_NAME,
-    description = "Predicting flower species with random noise and the petal width. Used elasticnet."
+  saveRDS(model, tmp)
+
+  mlflow_log_artifact(
+    path = tmp
   )
 })
