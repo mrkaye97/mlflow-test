@@ -14,8 +14,7 @@ RUN conda install -c anaconda pip && \
   pwd && ls && ls home &&  \
   conda update -n base -c defaults conda && \
   conda env list && \
-  pip freeze list  && \
-  which mlflow
+  pip freeze list
 
 CMD mlflow ui \
   --host 0.0.0.0 \
